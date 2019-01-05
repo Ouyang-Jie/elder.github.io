@@ -1,1 +1,250 @@
-index
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>全国异地经办机构数目</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width:600px;height:418px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var option ={
+            title: {
+                x: "center"
+            },
+            tooltip: {
+                trigger: "item",
+                show: true,
+                backgroundColor: "rgb(78, 121, 167)",
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 11,
+                    align: "center",
+                    baseline: "middle"
+                }
+            },
+            dataRange: {
+                min: 0,
+                max: 165,
+                x: "7%",
+                y: "62%",
+                calculable: false,
+                textStyle: {
+                    fontSize: 8,
+                    color: "#333"
+                },
+                text: ["165个", "0个"],
+                splitNumber: 8,
+                orient: "vertical",
+                itemWidth: 12,
+                padding: 0,
+                itemGap: 3,
+                itemHeight: 8,
+                color: ["rgb(106, 155, 195)", "rgba(229, 229, 229, 0.7)"]
+            },
+            toolbox: {
+                show: false,
+                orient: "horizontal",
+                y: "bottom",
+                feature: {
+                    dataView: {
+                        show: false,
+                        readOnly: false
+                    },
+                    restore: {
+                        show: false
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                },
+                x: 33
+            },
+            roamController: {
+                x: "right",
+                mapTypeControl: {
+                    china: true
+                },
+                show: false,
+                y: "bottom"
+            },
+            series: [
+                {
+                    name: "异地就医经办机构数目",
+                    type: "map",
+                    mapType: "china",
+                    roam: false,
+                    mapValueCalculation: "sum",
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: false,
+                                textStyle: {
+                                    color: "rgb(25, 25, 25)",
+                                    fontSize: 10,
+                                    fontStyle: "normal",
+                                    fontWeight: "lighter"
+                                }
+                            },
+                            borderWidth: 1,
+                            borderColor: "rgba(216, 210, 210, 0.31)"
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                textStyle: {
+                                    color: "rgb(51, 51, 51)",
+                                    fontSize: 11
+                                }
+                            }
+                        }
+                    },
+                    data: [
+                        {
+                            value: 165,
+                            name: "云南"
+                        },
+                        {
+                            value: 49,
+                            name: "广西"
+                        },
+                        {
+                            value: 36,
+                            name: "北京"
+                        },
+                        {
+                            value: 34,
+                            name: "福建"
+                        },
+                        {
+                            value: 22,
+                            name: "甘肃"
+                        },
+                        {
+                            value: 22,
+                            name: "广东"
+                        },
+                        {
+                            value: 22,
+                            name: "河南"
+                        },
+                        {
+                            value: 22,
+                            name: "宁夏"
+                        },
+                        {
+                            value: 22,
+                            name: "四川"
+                        },
+                        {
+                            value: 20,
+                            name: "山东"
+                        },
+                        {
+                            value: 51,
+                            name: "新疆"
+                        },
+                        {
+                            value: 18,
+                            name: "湖北"
+                        },
+                        {
+                            value: 17,
+                            name: "安徽"
+                        },
+                        {
+                            value: 16,
+                            name: "辽宁"
+                        },
+                        {
+                            value: 16,
+                            name: "上海"
+                        },
+                        {
+                            value: 15,
+                            name: "湖南"
+                        },
+                        {
+                            value: 14,
+                            name: "江苏"
+                        },
+                        {
+                            value: 13,
+                            name: "山西"
+                        },
+                        {
+                            value: 13,
+                            name: "陕西"
+                        },
+                        {
+                            value: 12,
+                            name: "贵州"
+                        },
+                        {
+                            value: 12,
+                            name: "河北"
+                        },
+                        {
+                            value: 12,
+                            name: "江西"
+                        },
+                        {
+                            value: 12,
+                            name: "浙江"
+                        },
+                        {
+                            value: 9,
+                            name: "青海"
+                        },
+                        {
+                            value: 2,
+                            name: "吉林"
+                        },
+                        {
+                            value: 1,
+                            name: "海南"
+                        },
+                        {
+                            value: 1,
+                            name: "内蒙古"
+                        },
+                        {
+                            value: 1,
+                            name: "天津"
+                        },
+                        {
+                            value: 1,
+                            name: "西藏"
+                        },
+                        {
+                            value: 1,
+                            name: "重庆"
+                        },
+                        {
+                            value: 0,
+                            name: "黑龙江"
+                        }
+                    ],
+                    mapLocation: {
+                        x: "center",
+                        y: "top"
+                    },
+                    markPoint: {
+                        data: []
+                    },
+                    tooltip: {
+                        backgroundColor: "rgb(178, 178, 178)"
+                    }
+                }
+            ],
+            calculable: true,
+            calculableColor: "rgb(30, 85, 129)",
+            color: ["rgb(63, 0, 127)", "#FFFFFF"]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>        
